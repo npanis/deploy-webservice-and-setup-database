@@ -1,9 +1,11 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const productsRouter = require("./products/products.router");
+const commentsRouter = require("./comments/comments.router");
+const postsRouter = require("./posts/posts.router");
+const usersRouter = require("./users/users.router");
 
-console.log("Database_URL", process.env.PRODUCTION_DATABASE_URL);
+
 
 app.use(express.json());
 app.use("/api/ping", (_request, response, _next) => {
@@ -11,7 +13,7 @@ app.use("/api/ping", (_request, response, _next) => {
   response.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
   response.json({ data: "pong!" });
 });
-app.use("/api/products", productsRouter);
+app.use("/users", usersRouter);
 
 // Not found handler
 app.use((request, _response, next) => {

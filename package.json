@@ -12,9 +12,9 @@
     "client": "npm start --prefix client",
     "start:dev": "nodemon src/server.js",
     "start:solution": "docker-compose up --build",
-    "dev": "nodemon api/index.js",
+    "dev": "nodemon src/index.js",
     "knex": "knex",
-    "start": "node index.js",
+    "start": "node src/index.js",
     "test": "jest",
     "test:solution": "docker-compose build && docker-compose run api npm test"
   },
